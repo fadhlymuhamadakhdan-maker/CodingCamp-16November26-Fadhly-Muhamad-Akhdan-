@@ -1,0 +1,529 @@
+/* ============================================================
+   Personal Dashboard — css/style.css
+   Light theme defined on :root; dark theme overrides via
+   [data-theme='dark'] on the <html> element.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. CSS Custom Properties — Light Theme (default)
+   ------------------------------------------------------------ */
+:root {
+  /* Colour palette */
+  --color-bg:          #f5f5f5;
+  --color-surface:     #ffffff;
+  --color-surface-alt: #f0f0f0;
+  --color-border:      #d0d0d0;
+  --color-text:        #1a1a1a;
+  --color-text-muted:  #6b6b6b;
+  --color-accent:      #2563eb;
+  --color-accent-hover:#1d4ed8;
+  --color-danger:      #dc2626;
+  --color-warning-bg:  #fef9c3;
+  --color-warning-text:#854d0e;
+
+  /* Typography */
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-sm:   0.875rem;
+  --font-size-lg:   1.25rem;
+  --font-size-xl:   2rem;
+  --font-size-2xl:  3rem;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 80ms ease;
+  --transition-theme: 150ms ease;
+}
+
+/* ------------------------------------------------------------
+   2. CSS Custom Properties — Dark Theme
+   ------------------------------------------------------------ */
+[data-theme='dark'] {
+  --color-bg:          #111827;
+  --color-surface:     #1f2937;
+  --color-surface-alt: #374151;
+  --color-border:      #4b5563;
+  --color-text:        #f9fafb;
+  --color-text-muted:  #9ca3af;
+  --color-accent:      #60a5fa;
+  --color-accent-hover:#93c5fd;
+  --color-danger:      #f87171;
+  --color-warning-bg:  #422006;
+  --color-warning-text:#fde68a;
+}
+
+/* ------------------------------------------------------------
+   3. CSS Reset / Base Styles
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: background-color var(--transition-theme), color var(--transition-theme);
+  min-height: 100vh;
+  padding: var(--space-4);
+}
+
+/* ------------------------------------------------------------
+   4. Storage Warning Banner
+   ------------------------------------------------------------ */
+.storage-warning {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------
+   5. Responsive Grid Layout
+   Dashboard uses a CSS Grid that collapses to 1-column on
+   narrow viewports and expands to multi-column on wider ones.
+   ------------------------------------------------------------ */
+.dashboard-grid {
+  display: grid;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  /* Single column on narrow screens */
+  grid-template-columns: 1fr;
+}
+
+/* Two-column layout: tablet and up (≥ 640 px) */
+@media (min-width: 640px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Greeting spans full width */
+  .widget--greeting {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Three-column layout: desktop and up (≥ 1024 px) */
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Greeting still spans full width */
+  .widget--greeting {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Four-column layout: wide desktop (≥ 1440 px) */
+@media (min-width: 1440px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Greeting spans all four columns */
+  .widget--greeting {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ------------------------------------------------------------
+   6. Widget Card
+   ------------------------------------------------------------ */
+.widget {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden; /* prevent internal overflow */
+  transition: background-color var(--transition-theme), border-color var(--transition-theme);
+}
+
+.widget-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+/* ------------------------------------------------------------
+   7. Greeting Widget
+   ------------------------------------------------------------ */
+.widget--greeting {
+  text-align: center;
+  padding: var(--space-8);
+}
+
+.greeting-prefix {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.greeting-time {
+  font-size: var(--font-size-2xl);
+  font-weight: 300;
+  color: var(--color-accent);
+  margin-top: var(--space-2);
+  letter-spacing: 0.05em;
+}
+
+.greeting-date {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+}
+
+/* ------------------------------------------------------------
+   8. Timer Widget
+   ------------------------------------------------------------ */
+.widget--timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.timer-ring-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.timer-ring__track {
+  fill: none;
+  stroke: var(--color-surface-alt);
+  stroke-width: 8;
+}
+
+.timer-ring__progress {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s linear, stroke var(--transition-theme);
+}
+
+.timer-center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  z-index: 1;
+}
+
+.timer-display {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.timer-session-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.timer-controls {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ------------------------------------------------------------
+   9. Todo Widget
+   ------------------------------------------------------------ */
+.todo-form {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-theme);
+}
+
+/* Strikethrough style for completed tasks (Requirement 5.9) */
+.todo-item--completed .todo-item__description {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.todo-item__description {
+  flex: 1;
+  word-break: break-word;
+  font-size: var(--font-size-base);
+}
+
+.todo-item__actions {
+  display: flex;
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+
+.todo-item__edit-input {
+  flex: 1;
+}
+
+/* ------------------------------------------------------------
+   10. Links Widget
+   ------------------------------------------------------------ */
+.links-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.links-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.link-btn {
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: background-color var(--transition-fast);
+  word-break: break-word;
+  max-width: 160px;
+  text-align: center;
+}
+
+.link-btn:hover {
+  background-color: var(--color-accent-hover);
+}
+
+/* ------------------------------------------------------------
+   11. Settings Panel
+   ------------------------------------------------------------ */
+.settings-group {
+  margin-bottom: var(--space-4);
+}
+
+.settings-group:last-child {
+  margin-bottom: 0;
+}
+
+.settings-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.settings-row {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ------------------------------------------------------------
+   12. Form Controls
+   ------------------------------------------------------------ */
+.input {
+  flex: 1;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--transition-fast), background-color var(--transition-theme);
+  min-width: 0; /* prevent overflow in flex containers */
+}
+
+.input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.input--narrow {
+  max-width: 100px;
+  flex: none;
+}
+
+/* ------------------------------------------------------------
+   13. Buttons
+   ------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color var(--transition-fast), color var(--transition-fast),
+              border-color var(--transition-fast), opacity var(--transition-fast);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.btn--ghost {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background-color: var(--color-border);
+}
+
+.btn--danger {
+  background-color: transparent;
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--font-size-sm);
+}
+
+.btn--danger:hover:not(:disabled) {
+  background-color: var(--color-danger);
+  color: #ffffff;
+}
+
+/* ------------------------------------------------------------
+   14. Field Error Messages
+   ------------------------------------------------------------ */
+.field-error {
+  font-size: var(--font-size-sm);
+  color: var(--color-danger);
+  margin-top: var(--space-1);
+}
+
+/* ------------------------------------------------------------
+   15. Utility
+   ------------------------------------------------------------ */
+[hidden] {
+  display: none !important;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "personal-dashboard",
+  "version": "1.0.0",
+  "description": "A personal dashboard SPA: greeting, Pomodoro timer, to-do list, quick links, and theme toggle.",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "fast-check": "^3.22.0",
+    "vitest": "^2.1.0"
+  }
+}

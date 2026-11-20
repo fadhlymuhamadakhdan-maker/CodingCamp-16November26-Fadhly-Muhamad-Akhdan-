@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Non-blocking storage warning banner (hidden by default) -->
+  <div id="storage-warning" class="storage-warning" role="alert" hidden></div>
+
+  <main class="dashboard-grid">
+
+    <!-- Section 1: Greeting Widget -->
+    <section id="greeting" class="widget widget--greeting" aria-label="Greeting">
+      <p id="greeting-prefix" class="greeting-prefix"></p>
+      <p id="greeting-time" class="greeting-time"></p>
+      <p id="greeting-date" class="greeting-date"></p>
+    </section>
+
+    <!-- Section 2: Timer Widget -->
+    <section id="timer" class="widget widget--timer" aria-label="Focus Timer">
+      <h2 class="widget-title">Focus Timer</h2>
+      <div class="timer-ring-wrapper">
+        <svg class="timer-ring" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="timer-ring__track" cx="60" cy="60" r="52"/>
+          <circle id="timer-ring-progress" class="timer-ring__progress" cx="60" cy="60" r="52"/>
+        </svg>
+        <div class="timer-center">
+          <div id="timer-display" class="timer-display" aria-live="polite" aria-atomic="true">25:00</div>
+          <div class="timer-session-label">Focus Session</div>
+        </div>
+      </div>
+      <div class="timer-controls">
+        <button id="timer-start" class="btn btn--primary" type="button">Start</button>
+        <button id="timer-stop" class="btn btn--secondary" type="button" disabled>Stop</button>
+        <button id="timer-reset" class="btn btn--ghost" type="button">Reset</button>
+      </div>
+    </section>
+
+    <!-- Section 3: Todo Widget -->
+    <section id="todo" class="widget widget--todo" aria-label="To-Do List">
+      <h2 class="widget-title">To-Do</h2>
+      <form id="todo-form" class="todo-form" autocomplete="off">
+        <input
+          id="todo-input"
+          class="input"
+          type="text"
+          placeholder="Add a task…"
+          maxlength="200"
+          aria-label="New task description"
+        />
+        <button class="btn btn--primary" type="submit">Add</button>
+      </form>
+      <p id="todo-error" class="field-error" role="alert" hidden></p>
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+    </section>
+
+    <!-- Section 4: Links Widget -->
+    <section id="links" class="widget widget--links" aria-label="Quick Links">
+      <h2 class="widget-title">Quick Links</h2>
+      <form id="links-form" class="links-form" autocomplete="off">
+        <div class="form-field">
+          <input
+            id="link-label"
+            class="input"
+            type="text"
+            placeholder="Label"
+            maxlength="50"
+            aria-label="Link label"
+          />
+          <p id="link-label-error" class="field-error" role="alert" hidden></p>
+        </div>
+        <div class="form-field">
+          <input
+            id="link-url"
+            class="input"
+            type="text"
+            placeholder="URL"
+            aria-label="Link URL"
+          />
+          <p id="link-url-error" class="field-error" role="alert" hidden></p>
+        </div>
+        <button class="btn btn--primary" type="submit">Add Link</button>
+      </form>
+      <p id="links-capacity-error" class="field-error" role="alert" hidden></p>
+      <p id="links-save-error" class="field-error" role="alert" hidden></p>
+      <div id="links-list" class="links-list" aria-live="polite"></div>
+    </section>
+
+    <!-- Section 5: Settings Panel -->
+    <section id="settings" class="widget widget--settings" aria-label="Settings">
+      <h2 class="widget-title">Settings</h2>
+
+      <!-- Name setting -->
+      <div class="settings-group">
+        <label for="settings-name" class="settings-label">Your Name</label>
+        <div class="settings-row">
+          <input
+            id="settings-name"
+            class="input"
+            type="text"
+            placeholder="Enter name…"
+            maxlength="51"
+            aria-describedby="settings-name-error"
+          />
+          <button id="settings-name-save" class="btn btn--primary" type="button">Save</button>
+        </div>
+        <p id="settings-name-error" class="field-error" role="alert" hidden></p>
+      </div>
+
+      <!-- Duration setting -->
+      <div class="settings-group">
+        <label for="settings-duration" class="settings-label">Focus Duration (minutes)</label>
+        <div class="settings-row">
+          <input
+            id="settings-duration"
+            class="input input--narrow"
+            type="number"
+            min="1"
+            max="120"
+            placeholder="25"
+            aria-describedby="settings-duration-error"
+          />
+          <button id="settings-duration-save" class="btn btn--primary" type="button">Save</button>
+        </div>
+        <p id="settings-duration-error" class="field-error" role="alert" hidden></p>
+      </div>
+
+      <!-- Theme toggle -->
+      <div class="settings-group">
+        <span class="settings-label">Theme</span>
+        <button id="settings-theme-toggle" class="btn btn--ghost theme-toggle" type="button" aria-label="Toggle theme">
+          <span id="theme-label">Light</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

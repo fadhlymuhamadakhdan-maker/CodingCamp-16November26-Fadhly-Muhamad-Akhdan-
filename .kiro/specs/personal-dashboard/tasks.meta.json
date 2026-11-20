@@ -1,0 +1,276 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Set up project structure and test scaffolding": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156320233
+      },
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156328824
+      },
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156647085
+      }
+    ],
+    "2.1 Implement `Utils.formatTime`, `Utils.formatDate`, `Utils.greetingPrefix`, `Utils.formatCountdown`, `Utils.normalizeURL`, `Utils.isValidURL` in `js/app.js`": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156320324
+      },
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156652435
+      },
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156730301
+      }
+    ],
+    "2.2 Write property test for `greetingPrefix` (Property 1)": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156320409
+      },
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156735819
+      }
+    ],
+    "2.3 Write property test for `formatCountdown` (Property 7)": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156320472
+      },
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156740928
+      }
+    ],
+    "2.4 Write property test for `normalizeURL` idempotency (Property 4)": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156320574
+      },
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156746185
+      }
+    ],
+    "2.5 Write unit tests for Utils": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156320640
+      },
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156751389
+      }
+    ],
+    "3.1 Implement `EventBus` with `on`, `off`, and `emit` in `js/app.js`": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156320705
+      }
+    ],
+    "3.2 Implement `Store` with `get`, `set`, `remove`, and `loadAll` in `js/app.js`": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156320758
+      }
+    ],
+    "3.3 Write unit tests for Store": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156320854
+      }
+    ],
+    "4. Checkpoint — Ensure Store, EventBus, and Utils tests pass": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156320909
+      }
+    ],
+    "5.1 Implement `GreetingWidget.init`, `startClock`, and `render` in `js/app.js`": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156320973
+      }
+    ],
+    "5.2 Write unit tests for GreetingWidget rendering": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321029
+      }
+    ],
+    "6.1 Implement `TimerWidget.init`, `start`, `stop`, `reset`, `render`, and `playAlert` in `js/app.js`": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321090
+      }
+    ],
+    "6.2 Write unit tests for TimerWidget": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321154
+      }
+    ],
+    "7.1 Implement `TodoWidget.init`, `addTask`, `toggleTask`, `deleteTask`, `startEdit`, `saveEdit`, and `render` in `js/app.js`": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321219
+      }
+    ],
+    "7.2 Write property test for empty-task rejection (Property 5)": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321276
+      }
+    ],
+    "7.3 Write property test for task addition (Property 6)": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321354
+      }
+    ],
+    "7.4 Write property test for Task JSON round-trip (Property 2)": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321417
+      }
+    ],
+    "7.5 Write unit tests for TodoWidget": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321473
+      }
+    ],
+    "8.1 Implement `LinksWidget.init`, `addLink`, `deleteLink`, and `render` in `js/app.js`": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321539
+      }
+    ],
+    "8.2 Write property test for link addition (Property 8)": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321611
+      }
+    ],
+    "8.3 Write property test for max-link enforcement (Property 9)": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321685
+      }
+    ],
+    "8.4 Write property test for Link JSON round-trip (Property 3)": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321751
+      }
+    ],
+    "8.5 Write unit tests for LinksWidget": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321807
+      }
+    ],
+    "9.1 Implement `ThemeManager.apply` in `js/app.js`": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321871
+      }
+    ],
+    "9.2 Implement `SettingsPanel.init`, `saveName`, `saveDuration`, `toggleTheme`, `showError`, and `clearError` in `js/app.js`": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321929
+      }
+    ],
+    "9.3 Write unit tests for SettingsPanel validators": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156321993
+      }
+    ],
+    "10. Checkpoint — Ensure all widget and settings tests pass": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156322082
+      }
+    ],
+    "11.1 Write the `DOMContentLoaded` initialization sequence": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156322171
+      }
+    ],
+    "11.2 Complete `index.html` markup": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156322338
+      }
+    ],
+    "11.3 Implement responsive CSS in `css/style.css`": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156322425
+      }
+    ],
+    "11.4 Write integration smoke tests": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156322514
+      }
+    ],
+    "12. Final checkpoint — Ensure all tests pass": [
+      {
+        "executionId": "d54836a4-a1b2-49e3-b2b8-54f6dc6fa88e",
+        "chatSessionId": "sess_e13ae1d8-cf35-4242-8a14-a948c035ef65",
+        "timestamp": 1795156322587
+      }
+    ]
+  }
+}
